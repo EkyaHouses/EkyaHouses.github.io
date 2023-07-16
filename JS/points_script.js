@@ -32,11 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         pointsElement.textContent = '0';
                     }
                 });
-
-                // Mouse leave event listener
-                houseElement.addEventListener('mouseleave', () => {
-                    pointsElement.textContent = '0'; // Replace with the initial points value if needed
-                });
             });
         })
         .catch(error => console.error('Error fetching points data:', error));
