@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
             pointsData.push({ houseName, date, event, points });
         }
 
-        console.log(pointsData);
-
         return pointsData;
     }
 
@@ -54,20 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
             totalPointsByHouse[houseName] += points;
         });
 
-
-        console.log("Total points by house: "+totalPointsByHouse["Agni"]);
-        console.log("Total points by house: "+totalPointsByHouse["Bhoomi"]);
-        console.log("Total points by house: "+totalPointsByHouse["Vayu"]);
-        console.log("Total points by house: "+totalPointsByHouse["Jal"]);
         return totalPointsByHouse;
     }
 
     function populateScoreboard(totalPointsByHouse) {
         // Get all house elements and update their content with the total points
-        console.log(totalPointsByHouse);
         houseElements.forEach(houseElement => {
             const houseName = houseElement.getAttribute('data-house');
-            console.log(houseName);
             if (totalPointsByHouse.hasOwnProperty(houseName)) {
                 const totalPoints = totalPointsByHouse[houseName];
                 houseElement.querySelector('.pointsValue').textContent = `${totalPoints}`;

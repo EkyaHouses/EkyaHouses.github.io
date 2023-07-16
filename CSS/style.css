@@ -187,23 +187,23 @@ h2 {
     color: #333;
 }
 
-#modalEventsTable table {
+#modalEventsTable {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-#modalEventsTable table th,
-#modalEventsTable table td {
+#modalEventsTable th,
+#modalEventsTable td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-#modalEventsTable table th {
+#modalEventsTable th {
     background-color: #f2f2f2;
 }
 
-#modalEventsTable table tr:last-child td {
+#modalEventsTable tr:last-child td {
     border-bottom: none;
 }
