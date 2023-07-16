@@ -20,22 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Add event listener for each house logo to display updated points on hover
             houseElements.forEach(houseElement => {
+                const houseName = houseElement.getAttribute('data-house');
+                const pointsElement = houseElement.querySelector('.house-details .points span');
+
                 houseElement.addEventListener('mouseenter', () => {
-                    const houseName = houseElement.getAttribute('data-house');
                     if (totalPointsByHouse.hasOwnProperty(houseName)) {
                         const totalPoints = totalPointsByHouse[houseName];
-                        const pointsElement = houseElement.querySelector('.house-details #points');
-                        pointsElement.textContent = `Total Points: ${totalPoints}`;
+                        pointsElement.textContent = totalPoints;
                     } else {
-                        const pointsElement = houseElement.querySelector('.house-details #points');
-                        pointsElement.textContent = 'Total Points: 0';
+                        pointsElement.textContent = '0';
                     }
                 });
 
                 // Reset the points display when the mouse leaves the house logo
                 houseElement.addEventListener('mouseleave', () => {
-                    const pointsElement = houseElement.querySelector('.house-details #points');
-                    pointsElement.textContent = 'Total Points: 0'; // Replace with the initial points value if needed
+                    pointsElement.textContent = '0'; // Replace with the initial points value if needed
                 });
             });
         })
