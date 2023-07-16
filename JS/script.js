@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const eventsTableBody = document.querySelector('#events-table tbody');
 
     // Replace 'events.csv' with the actual path to your CSV file
-    fetch("events.csv")
+    fetch("Data/events.csv")
         .then(response => response.text())
         .then(data => {
             const events = parseCSV(data);
