@@ -1,9 +1,10 @@
-// JavaScript to fetch and populate the events from the CSV file
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const eventsTableBody = document.querySelector('#events-table tbody');
 
-    // Replace 'events.csv' with the actual path to your CSV file
-    fetch("Data/events.csv")
+    // Replace 'events.csv' with the relative path to your CSV file on GitHub Pages
+    const csvUrl = 'Data/events.csv';
+
+    fetch(csvUrl)
         .then(response => response.text())
         .then(data => {
             const events = parseCSV(data);
@@ -26,6 +27,19 @@ window.addEventListener('DOMContentLoaded', () => {
         return events;
     }
 
+    function createLinkOrText(linkOrContact) {
+        // Regular expression to check if the value is a valid URL
+        const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
+        // If it's a valid URL, create a hyperlink with "Click here" text
+        if (urlRegex.test(linkOrContact)) {
+            return `<a href="${linkOrContact}" target="_blank">Click here</a>`;
+        }
+
+        // If it's not a URL, leave it as plain text
+        return linkOrContact;
+    }
+
     function populateEventsTable(events) {
         let tableHTML = '';
 
@@ -34,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 <tr>
                     <td>${event.eventName}</td>
                     <td>${event.date}</td>
-                    <td>${event.linkOrContact}</td>
+                    <td>${createLinkOrText(event.linkOrContact)}</td>
                 </tr>
             `;
         });
