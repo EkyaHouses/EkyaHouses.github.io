@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreboardContainer = document.querySelector('.scoreboard-container');
     const houseElements = scoreboardContainer.querySelectorAll('.house');
 
+
+    console.log(houseElements[0]);
+
     // Replace 'points.csv' with the relative path to your CSV file on GitHub Pages
     const csvUrl = 'Data/points.csv';
 
@@ -16,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const pointsData = parseCSV(data);
             const totalPointsByHouse = calculateTotalPoints(pointsData);
-            populateScoreboard(totalPointsByHouse);
+            // populateScoreboard(totalPointsByHouse);
         })
         .catch(error => console.error('Error fetching points data:', error));
 
@@ -51,7 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
-        console.log("Total points by house: "+totalPointsByHouse);
+        console.log("Total points by house: "+totalPointsByHouse["Agni"]);
+        console.log("Total points by house: "+totalPointsByHouse["Bhoomi"]);
+        console.log("Total points by house: "+totalPointsByHouse["Vayu"]);
+        console.log("Total points by house: "+totalPointsByHouse["Jal"]);
         return totalPointsByHouse;
     }
 
