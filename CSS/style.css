@@ -147,6 +147,8 @@ h1 {
 /* -------------- */
 
 /* Styles for the modal */
+
+/* Styles for the modal */
 .modal {
     display: none;
     position: fixed;
@@ -160,23 +162,52 @@ h1 {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background-color: #f9f9f9;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #333;
     text-decoration: none;
     cursor: pointer;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table tr:last-child td {
+    border-bottom: none;
 }
