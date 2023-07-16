@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const houseName = houseElement.getAttribute('data-house');
                 const pointsElement = houseElement.querySelector('.house-details .points span');
 
+                // Mouse enter event listener
                 houseElement.addEventListener('mouseenter', () => {
                     if (totalPointsByHouse.hasOwnProperty(houseName)) {
                         const totalPoints = totalPointsByHouse[houseName];
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Reset the points display when the mouse leaves the house logo
+                // Mouse leave event listener
                 houseElement.addEventListener('mouseleave', () => {
                     pointsElement.textContent = '0'; // Replace with the initial points value if needed
                 });
