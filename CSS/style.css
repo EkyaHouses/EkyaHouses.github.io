@@ -8,6 +8,7 @@ body {
 }
 
 .header {
+    width: 100%;
     background-color: #f0f0f0; /* Light gray background */
     padding: 10px;
     display: flex;
@@ -109,6 +110,7 @@ h1 {
 /* General styles for the events table */
 #events-table {
     width: 100%;
+    max-width: 1200px;
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -154,6 +156,7 @@ h1 {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
 }
 
 .modal-content {
