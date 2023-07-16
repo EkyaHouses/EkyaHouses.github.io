@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const csvUrl = 'Data/points.csv';
 
     // Fetch the points CSV file
-    axios.get(csvUrl)
+    fetch(csvUrl)
         .then(response => {
             const pointsData = parseCSV(response.data);
             const totalPointsByHouse = calculateTotalPoints(pointsData);
