@@ -8,7 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch the points CSV file
     fetch(csvUrl)
         .then(response => {
-            const pointsData = parseCSV(response.data);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            const pointsData = parseCSV(data);
             const totalPointsByHouse = calculateTotalPoints(pointsData);
             populateScoreboard(totalPointsByHouse);
 
@@ -18,21 +24,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     const houseName = houseElement.getAttribute('data-house');
                     if (totalPointsByHouse.hasOwnProperty(houseName)) {
                         const totalPoints = totalPointsByHouse[houseName];
-                        houseElement.querySelector('.house-details').textContent = `Total Points: ${totalPoints}`;
+                        const pointsElement = houseElement.querySelector('.house-details #points');
+                        pointsElement.textContent = `Total Points: ${totalPoints}`;
                     } else {
-                        houseElement.querySelector('.house-details').textContent = 'Total Points: 0';
+                        const pointsElement = houseElement.querySelector('.house-details #points');
+                        pointsElement.textContent = 'Total Points: 0';
                     }
                 });
 
-                console.log("Its working!")
-
                 // Reset the points display when the mouse leaves the house logo
                 houseElement.addEventListener('mouseleave', () => {
-                    houseElement.querySelector('.house-details').textContent = 'Total Points: 0'; // Replace with the initial points value if needed
+                    const pointsElement = houseElement.querySelector('.house-details #points');
+                    pointsElement.textContent = 'Total Points: 0'; // Replace with the initial points value if needed
                 });
             });
         })
         .catch(error => console.error('Error fetching points data:', error));
+
 
     function parseCSV(data) {
         const rows = data.split('\n');
