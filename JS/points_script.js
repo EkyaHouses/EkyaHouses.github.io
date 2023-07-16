@@ -113,4 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
     modalCloseBtn.addEventListener('click', () => {
         modal.style.display = 'none';
     });
+
+    function getEventsByHouse(houseName, pointsData) {
+        return pointsData.filter(data => data.houseName === houseName);
+    }
 });
