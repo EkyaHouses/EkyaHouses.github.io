@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalHouseName = document.getElementById('modalHouseName');
     const modalEventsTable = document.getElementById('modalEventsTable').getElementsByTagName('tbody')[0];
     var pointsData;
+    var totalPointsByHouse = {};
 
     const csvUrl = 'Data/points.csv';
 
@@ -42,8 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function calculateTotalPoints(pointsData) {
-        const totalPointsByHouse = {};
-
         pointsData.forEach(data => {
             const { houseName, points } = data;
             if (!totalPointsByHouse[houseName]) {
@@ -77,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function showEventsPopup(houseName, houseEvents) {
-        modalHouseName.textContent = houseName;
+        modalHouseName.textContent = houseName.toUpperCase() + ": " + totalPointsByHouse[houseName] + " points";
         modalEventsTable.innerHTML = '';
 
         houseEvents.forEach(eventData => {
