@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add event listener for each house logo to display updated points on hover
             houseElements.forEach(houseElement => {
                 const houseName = houseElement.getAttribute('data-house');
-                const pointsElement = houseElement.querySelector('.house-details .points span');
+                const pointsElement = houseElement.querySelector('.house-details .points .pointsValue');
 
                 // Mouse enter event listener
                 houseElement.addEventListener('mouseenter', () => {
