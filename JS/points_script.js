@@ -17,22 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const pointsData = parseCSV(data);
             const totalPointsByHouse = calculateTotalPoints(pointsData);
             populateScoreboard(totalPointsByHouse);
-
-            // Add event listener for each house logo to display updated points on hover
-            houseElements.forEach(houseElement => {
-                const houseName = houseElement.getAttribute('data-house');
-                const pointsElement = houseElement.querySelector('.house-details .points .pointsValue');
-
-                // Mouse enter event listener
-                houseElement.addEventListener('mouseenter', () => {
-                    if (totalPointsByHouse.hasOwnProperty(houseName)) {
-                        const totalPoints = totalPointsByHouse[houseName];
-                        pointsElement.textContent = totalPoints;
-                    } else {
-                        pointsElement.textContent = '0';
-                    }
-                });
-            });
         })
         .catch(error => console.error('Error fetching points data:', error));
 
@@ -50,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
             pointsData.push({ houseName, date, event, points });
         }
 
+        console.log(pointsData);
+
         return pointsData;
     }
 
@@ -64,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
             totalPointsByHouse[houseName] += points;
         });
 
+
+        console.log("Total points by house: "+totalPointsByHouse);
         return totalPointsByHouse;
     }
 
@@ -73,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const houseName = houseElement.getAttribute('data-house');
             if (totalPointsByHouse.hasOwnProperty(houseName)) {
                 const totalPoints = totalPointsByHouse[houseName];
-                houseElement.querySelector('.house-details').textContent = `Total Points: ${totalPoints}`;
+                houseElement.querySelector('.house-details .points span').textContent = `${totalPoints}`;
             } else {
-                houseElement.querySelector('.house-details').textContent = 'Total Points: 0';
+                houseElement.querySelector('.house-details .points span').textContent = '0';
             }
         });
     }
