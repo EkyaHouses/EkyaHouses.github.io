@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const scoreboardContainer = document.getElementById('scoreboard-container');
+    const scoreboardContainer = document.querySelector('.scoreboard-container');
     const houseElements = scoreboardContainer.querySelectorAll('.house');
 
     // Replace 'points.csv' with the relative path to your CSV file on GitHub Pages
@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         houseElement.querySelector('.house-details').textContent = 'Total Points: 0';
                     }
                 });
+
+                console.log("Its working!")
 
                 // Reset the points display when the mouse leaves the house logo
                 houseElement.addEventListener('mouseleave', () => {
