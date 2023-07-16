@@ -63,8 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateScoreboard(totalPointsByHouse) {
         // Get all house elements and update their content with the total points
+        console.log(totalPointsByHouse);
         houseElements.forEach(houseElement => {
             const houseName = houseElement.getAttribute('data-house');
+            console.log(houseName);
             if (totalPointsByHouse.hasOwnProperty(houseName)) {
                 const totalPoints = totalPointsByHouse[houseName];
                 houseElement.querySelector('.pointsValue').textContent = `${totalPoints}`;
