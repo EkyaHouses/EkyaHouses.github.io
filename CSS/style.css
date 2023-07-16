@@ -32,7 +32,7 @@ body {
 }
 
 .menu li:last-child {
-    margin-right: 0; /* Remove right margin from the last menu item */
+    margin-right: 0; 
 }
 
 .menu a {
@@ -47,7 +47,7 @@ h1 {
 
 .scoreboard-container {
     display: flex;
-    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+    flex-wrap: wrap; 
     justify-content: space-around;
     max-width: 1200px;
     margin: 0 auto;
@@ -56,16 +56,16 @@ h1 {
 }
 
 .house {
-    flex: 1 1 25%; /* Distribute available space evenly and set a minimum width of 25% */
-    max-width: 250px; /* Limit the maximum width of each house */
+    flex: 1 1 25%; 
+    max-width: 250px; 
     position: relative;
     overflow: hidden;
-    margin: 10px; /* Add margin to create space between images */
+    margin: 10px;
 }
 
 .house img {
     width: 100%;
-    height: auto; /* Allow the image height to adjust with the width while maintaining the aspect ratio */
+    height: auto; 
     display: block;
     transition: filter 0.3s ease;
 }
@@ -97,8 +97,8 @@ h1 {
 /* Media Query for responsiveness */
 @media screen and (max-width: 768px) {
     .house {
-        flex: 1 1 45%; /* Reduce the flex basis to make images stack one below the other */
-        max-width: none; /* Remove the maximum width restriction */
+        flex: 1 1 45%; 
+        max-width: none;
     }
 }
 
@@ -143,11 +143,6 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
-/* -------------- */
-
-/* Styles for the modal */
-
 /* Styles for the modal */
 .modal {
     display: none;
@@ -186,28 +181,29 @@ h1 {
 }
 
 h2 {
+    text-align: center;
     margin-bottom: 10px;
     font-size: 24px;
     color: #333;
 }
 
-table {
+#modalEventsTable table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-table th,
-table td {
+#modalEventsTable table th,
+#modalEventsTable table td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-table th {
+#modalEventsTable table th {
     background-color: #f2f2f2;
 }
 
-table tr:last-child td {
+#modalEventsTable table tr:last-child td {
     border-bottom: none;
 }

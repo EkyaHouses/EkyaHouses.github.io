@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const eventsTableBody = document.querySelector('#events-table tbody');
 
-    // Replace 'events.csv' with the relative path to your CSV file on GitHub Pages
     const csvUrl = 'Data/events.csv';
 
     fetch(csvUrl)

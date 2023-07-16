@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalEventsTable = document.getElementById('modalEventsTable').getElementsByTagName('tbody')[0];
     var pointsData;
 
-    // Replace 'points.csv' with the relative path to your CSV file on GitHub Pages
     const csvUrl = 'Data/points.csv';
 
     // Fetch the points CSV file
