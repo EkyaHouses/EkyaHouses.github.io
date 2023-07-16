@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+body {
+    font-family: 'Roboto';
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 75px; /* Adjust the height of the school logo */
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    padding-right: 20px;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu li:last-child {
+    margin-right: 0; /* Remove right margin from the last menu item */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.scoreboard-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #333;
+}
+
+.house {
+    flex: 1 1 25%; /* Distribute available space evenly and set a minimum width of 25% */
+    max-width: 250px; /* Limit the maximum width of each house */
+    position: relative;
+    overflow: hidden;
+    margin: 10px; /* Add margin to create space between images */
+}
+
+.house img {
+    width: 100%;
+    height: auto; /* Allow the image height to adjust with the width while maintaining the aspect ratio */
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+.house-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.house:hover img {
+    filter: blur(8px);
+}
+
+.house:hover .house-details {
+    opacity: 1;
+}
+
+/* Media Query for responsiveness */
+@media screen and (max-width: 768px) {
+    .house {
+        flex: 1 1 45%; /* Reduce the flex basis to make images stack one below the other */
+        max-width: none; /* Remove the maximum width restriction */
+    }
+}
+
+.events-container{
+    padding: 25px;
+}
+
+/* General styles for the events table */
+#events-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#events-table th,
+#events-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+#events-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+#events-table td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styles for alternate rows to create a striped effect */
+#events-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect for table rows */
+#events-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add a little shadow to the table */
+.events-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
