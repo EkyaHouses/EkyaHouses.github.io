@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const pointsData = parseCSV(data);
             const totalPointsByHouse = calculateTotalPoints(pointsData);
-            // populateScoreboard(totalPointsByHouse);
+            populateScoreboard(totalPointsByHouse);
         })
         .catch(error => console.error('Error fetching points data:', error));
 
@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const houseName = houseElement.getAttribute('data-house');
             if (totalPointsByHouse.hasOwnProperty(houseName)) {
                 const totalPoints = totalPointsByHouse[houseName];
-                houseElement.querySelector('.house-details .points span').textContent = `${totalPoints}`;
+                houseElement.querySelector('.pointsValue').textContent = `${totalPoints}`;
             } else {
-                houseElement.querySelector('.house-details .points span').textContent = '0';
+                houseElement.querySelector('.pointsValue').textContent = '0';
             }
         });
     }
