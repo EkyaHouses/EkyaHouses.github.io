@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('myModal');
     const modalHouseName = document.getElementById('modalHouseName');
     const modalEventsTable = document.getElementById('modalEventsTable').getElementsByTagName('tbody')[0];
+    var pointsData;
 
     // Replace 'points.csv' with the relative path to your CSV file on GitHub Pages
     const csvUrl = 'Data/points.csv';
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.text();
         })
         .then(data => {
-            const pointsData = parseCSV(data);
+            pointsData = parseCSV(data);
             const totalPointsByHouse = calculateTotalPoints(pointsData);
             populateScoreboard(totalPointsByHouse);
         })
